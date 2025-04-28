@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaPhp, FaFigma, FaDatabase } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFlutter, SiFirebase, SiSupabase, SiLaravel, SiMysql, SiPostgresql, SiSqlite } from "react-icons/si";
@@ -49,7 +51,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto mb-16">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Animated text section - left side */}
-            <div className="md:w-1/2 animate-fade-in-left">
+            <div className="md:w-1/2 animate-fadeInLeft">
               <h3 className="text-2xl font-semibold mb-6 text-slate-800 border-l-4 border-teal-400 pl-4">Who I Am</h3>
               <p className="text-slate-600 mb-6">
                 I'm a passionate web and mobile developer with over 5 years of experience creating
@@ -69,11 +71,11 @@ const About = () => {
             </div>
             
             {/* Image - right side */}
-            <div className="md:w-1/2 flex justify-center animate-fade-in-right">
+            <div className="md:w-1/2 flex justify-center animate-fadeInRight">
               <div className="relative w-80 h-80 rounded-lg overflow-hidden shadow-xl">
                 {/* Replace with your actual image */}
                 <Image 
-                  src="/developer-illustration.svg" 
+                  src="/public/images/about.png" 
                   alt="Developer" 
                   width={320} 
                   height={320}
@@ -104,39 +106,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* Add these animations to your global CSS */}
-      <style jsx global>{`
-        @keyframes fadeInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        @keyframes fadeInRight {
-          from {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        .animate-fade-in-left {
-          animation: fadeInLeft 1s ease-out forwards;
-        }
-        
-        .animate-fade-in-right {
-          animation: fadeInRight 1s ease-out forwards;
-        }
-      `}</style>
     </section>
   );
 };
