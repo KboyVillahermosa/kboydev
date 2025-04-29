@@ -49,28 +49,28 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-slate-100">
+    <section id="about" className="py-20 bg-[#fbfbfe]">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-slate-800">About Me</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-[#050315]">About Me</h2>
         
         {/* Bio section with animation and image */}
         <div className="max-w-6xl mx-auto mb-16">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Animated text section - left side */}
             <div className="md:w-1/2 animate-fadeInLeft">
-              <h3 className="text-2xl font-semibold mb-6 text-slate-800 border-l-4 border-teal-400 pl-4">Who I Am</h3>
-              <p className="text-slate-600 mb-6">
+              <h3 className="text-2xl font-semibold mb-6 text-[#050315] border-l-4 border-[#2f27ce] pl-4">Who I Am</h3>
+              <p className="text-[#050315]/80 mb-6">
                 I'm a passionate web and mobile developer with over 5 years of experience creating
                 beautiful, functional, and user-friendly digital experiences. My journey in development
                 started with front-end web technologies, and I've since expanded into mobile app
                 development.
               </p>
-              <p className="text-slate-600 mb-6">
+              <p className="text-[#050315]/80 mb-6">
                 I believe in clean code, intuitive user interfaces, and creating applications
                 that solve real problems. My approach combines technical expertise with an eye for design
                 to deliver solutions that not only work flawlessly but look great too.
               </p>
-              <p className="text-slate-600">
+              <p className="text-[#050315]/80">
                 When I'm not coding, you can find me exploring new technologies, contributing to
                 open-source projects, or sharing my knowledge through mentoring and blog posts.
               </p>
@@ -78,7 +78,7 @@ const About = () => {
             
             {/* Image - right side */}
             <div className="md:w-1/2 flex justify-center animate-fadeInRight">
-              <div className="relative w-full h-auto rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
+              <div className="relative w-full h-auto rounded-lg overflow-hidden shadow-lg border border-[#dedcff] max-w-md mx-auto">
                 <Image 
                   src="/images/about.png" 
                   alt="Developer" 
@@ -94,17 +94,17 @@ const About = () => {
         
         {/* Skills section */}
         <div className="max-w-5xl mx-auto">
-          <h3 className="text-2xl font-semibold mb-8 text-center text-slate-800">My Skills</h3>
+          <h3 className="text-2xl font-semibold mb-8 text-center text-[#050315]">My Skills</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {skills.map((skill, index) => (
               <div 
                 key={index}
-                className="bg-white p-4 rounded-lg shadow-md text-center hover:shadow-lg transition-all duration-300 hover:bg-slate-800 group flex flex-col items-center justify-center gap-2"
+                className="bg-white p-4 rounded-lg border border-[#dedcff] shadow-sm hover:shadow-md transition-all duration-300 hover:bg-[#2f27ce] group flex flex-col items-center justify-center gap-2"
               >
-                <div className="transition-transform duration-300 transform group-hover:scale-110">
+                <div className="transition-transform duration-300 transform group-hover:scale-110 group-hover:text-white">
                   {skill.icon}
                 </div>
-                <span className="font-medium text-slate-700 group-hover:text-teal-400 transition-colors duration-300">
+                <span className="font-medium text-[#050315]/80 group-hover:text-white transition-colors duration-300">
                   {skill.name}
                 </span>
               </div>
