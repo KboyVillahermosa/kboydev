@@ -32,7 +32,7 @@ const Contact = () => {
                     className="flex items-center text-[#050315]/80 hover:text-[#2f27ce] transition-all"
                   >
                     <FaEnvelope className="mr-3 text-[#2f27ce]" />
-                    franciscovillahermosa@gmail.com
+                   villahermosafrancisco@gmail.com
                   </a>
                   <a 
                     href="tel:+639123456789" 
@@ -75,7 +75,7 @@ const Contact = () => {
                 </a>
                 
                 <a 
-                  href="https://linkedin.com/in/francisco-villahermosa" 
+                  href="https://www.linkedin.com/in/francisco-villahermosa-912399311/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#050315]/80 hover:text-[#2f27ce] transition-all"
@@ -85,7 +85,7 @@ const Contact = () => {
                 </a>
                 
                 <a 
-                  href="mailto:franciscovillahermosa@gmail.com"
+                  href="https://mail.google.com/mail/u/0/#inbox"
                   className="flex items-center gap-3 text-[#050315]/80 hover:text-[#2f27ce] transition-all"
                 >
                   <FaEnvelope className="text-xl" />
@@ -93,7 +93,7 @@ const Contact = () => {
                 </a>
                 
                 <a 
-                  href="https://facebook.com/francisco.villahermosa" 
+                  href="https://www.facebook.com/kboy.villahermosa.2024" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#050315]/80 hover:text-[#2f27ce] transition-all"
@@ -103,7 +103,7 @@ const Contact = () => {
                 </a>
                 
                 <a 
-                  href="https://instagram.com/kboy_villahermosa" 
+                  href="https://www.instagram.com/villahermosakboy/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-[#050315]/80 hover:text-[#2f27ce] transition-all"

@@ -10,6 +10,22 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <nav className="bg-[#fbfbfe] border-b border-[#dedcff] shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -17,21 +33,33 @@ const Navbar = () => {
           <Image src="/images/logo.png" alt="Logo" width={32} height={32} />
           <span>Kboy</span>
         </Link>
-        
+
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           <Link href="/" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
             Home
           </Link>
-          <Link href="#about" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
+          <a
+            href="#about"
+            className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium"
+            onClick={(e) => handleScroll(e, "about")}
+          >
             About
-          </Link>
-          <Link href="#projects" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
+          </a>
+          <a
+            href="#projects"
+            className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium"
+            onClick={(e) => handleScroll(e, "projects")}
+          >
             Projects
-          </Link>
-          <Link href="#contact" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
+          </a>
+          <a
+            href="#contact"
+            className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium"
+            onClick={(e) => handleScroll(e, "contact")}
+          >
             Contact
-          </Link>
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -79,33 +107,33 @@ const Navbar = () => {
         <div className="md:hidden bg-[#fbfbfe] shadow-inner border-t border-[#dedcff]">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
             <Link
-              href="/"
+              href="#home"
               className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
               onClick={toggleMenu}
             >
               Home
             </Link>
-            <Link
+            <a
               href="#about"
               className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
-              onClick={toggleMenu}
+              onClick={(e) => handleScroll(e, "about")}
             >
               About
-            </Link>
-            <Link
+            </a>
+            <a
               href="#projects"
               className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
-              onClick={toggleMenu}
+              onClick={(e) => handleScroll(e, "projects")}
             >
               Projects
-            </Link>
-            <Link
+            </a>
+            <a
               href="#contact"
               className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
-              onClick={toggleMenu}
+              onClick={(e) => handleScroll(e, "contact")}
             >
               Contact
-            </Link>
+            </a>
           </div>
         </div>
       )}
