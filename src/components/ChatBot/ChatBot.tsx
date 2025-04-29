@@ -45,21 +45,40 @@ const ChatBot = () => {
       </svg>
     },
     { 
-      text: "List your projects",
+      text: "Tell me about USPF Research Archive",
       icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
       </svg>
     },
     { 
-      text: "What are your skills?",
+      text: "What is the Ascentra app?",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    },
+    { 
+      text: "List your tech skills",
       icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     },
     { 
-      text: "How can I contact you?",
+      text: "How to contact you",
       icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    },
+    { 
+      text: "Tell me about Search Job platform",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    },
+    { 
+      text: "Are you available for freelance?",
+      icon: <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
       </svg>
     }
   ];
@@ -68,55 +87,49 @@ const ChatBot = () => {
     // Personal identity
     { 
       keywords: ['who is kboy', 'who are you', 'your name', 'real name', 'full name', 'personal details', 'about you'],
-      response: "My name is Francisco Villahermosa, also known as KBOY. I'm a 3rd year BSIT student from the University of Southern Philippines Foundation (USPF) and I'm a passionate web and mobile developer eager to grow and contribute to innovative projects."
+      response: "My name is Francisco Villahermosa, also known as KBOY. I'm a 3rd year BSIT student from the University of Southern Philippines Foundation (USPF) and I'm a passionate web and mobile developer based in Cebu City, Philippines."
     },
+    // Projects - Updated with your specific projects
     { 
-      keywords: ['hello', 'hi', 'hey', 'greetings'],
-      response: "Hello! I'm Francisco's (KBOY's) digital assistant. How can I help you today?"
+      keywords: ['projects', 'work', 'portfolio', 'list projects', 'show projects'],
+      response: "Here are my main projects:\n\n1. USPF Research Archive - A digital platform for academic research publications\n2. Techtool - A resource for improving computer science and IT skills\n3. Search Job - A job listings aggregator platform\n4. Ascentra - An app for discovering and tracking hiking spots in Cebu\n\nWould you like more details about any specific project?"
+    },
+    // Project-specific responses
+    {
+      keywords: ['uspf', 'research', 'archive', 'thesis', 'academic'],
+      response: "USPF Research Archive is a digital platform where students and faculty can upload theses, dissertations, and research publications. It also automatically generates related studies, helping users find relevant academic work for their research. Built with Laravel, Backpack, Tailwind CSS, and MySQL."
+    },
+    {
+      keywords: ['techtool', 'tech tool', 'computer science', 'IT resources'],
+      response: "Techtool is a comprehensive resource designed to help users improve their computer science and IT skills. It provides learning materials, tutorials, and tools for various computing topics. Built with HTML, CSS, JavaScript, PHP, MySQL, and Tailwind CSS."
+    },
+    {
+      keywords: ['search job', 'job search', 'job listings', 'job board', 'employment'],
+      response: "Search Job is a platform that aggregates job listings from leading sources like LinkedIn, Indeed, Glassdoor, and more. It allows users to search, filter, and explore opportunities all in one place. Built with ReactJS, Node.js, Firebase, and TypeScript."
+    },
+    {
+      keywords: ['ascentra', 'hiking', 'trails', 'cebu', 'adventure'],
+      response: "Ascentra is an application that helps users discover and track hiking spots around Cebu. Users can post their adventures, monitor their progress and routes, and access maps of all local trails. Built with ReactJS, Node.js, Firebase, and TypeScript."
+    },
+    // Skills based on project technologies
+    { 
+      keywords: ['skills', 'technologies', 'tech stack', 'programming', 'languages', 'frameworks'],
+      response: "My technical skills include:\n\n• Frontend: React, TypeScript, HTML, CSS, JavaScript, Tailwind CSS\n• Backend: Node.js, PHP, Laravel, Backpack\n• Databases: MySQL, Firebase\n• Other: Git, GitHub, Responsive Design\n\nI'm comfortable with both frontend and backend development, with experience building complete web applications."
+    },
+    // Contact - Updated with your contact information
+    { 
+      keywords: ['contact', 'hire', 'email', 'reach', 'message', 'get in touch'],
+      response: "You can contact me through email at villahermosafrancisco@gmail.com or call +63 912 345 6789. I'm based in Cebu City, Philippines, and I'm currently open to freelance opportunities and collaborations."
+    },
+    // Location
+    { 
+      keywords: ['location', 'where', 'address', 'based', 'city', 'country', 'cebu'],
+      response: "I'm based in Cebu City, Philippines."
     },
     // Education
     {
       keywords: ['education', 'study', 'degree', 'university', 'college', 'school', 'uspf', 'student'],
-      response: "I'm currently a 3rd year Bachelor of Science in Information Technology (BSIT) student at the University of Southern Philippines Foundation (USPF). I'm focusing on web and mobile development, complementing my academic studies with practical projects and self-learning."
-    },
-    // Projects
-    { 
-      keywords: ['projects', 'work', 'portfolio', 'list projects', 'show projects'],
-      response: "KBOY has worked on several exciting projects including:\n\n1. E-Commerce Platform - A full-featured online store with cart functionality and payment processing\n2. Mobile Fitness App - A React Native app for tracking workouts and health metrics\n3. Task Management Dashboard - A collaborative project management tool with real-time updates\n\nWould you like to know more about a specific project?"
-    },
-    { 
-      keywords: ['skills', 'technologies', 'tech stack', 'programming', 'languages', 'frameworks'],
-      response: "Francisco (KBOY) is proficient in a variety of technologies including:\n\n• Frontend: React, Next.js, Vue.js, TypeScript, Tailwind CSS\n• Mobile: React Native, Flutter\n• Backend: Node.js, Laravel, PHP\n• Databases: MySQL, PostgreSQL, Firebase, Supabase\n\nHe's comfortable with frontend, backend, and mobile development. Any specific technology you're curious about?"
-    },
-    { 
-      keywords: ['contact', 'hire', 'email', 'reach', 'message', 'get in touch'],
-      response: "You can contact Francisco (KBOY) through the contact form on this website, or directly via email at vilalhermosafrancisco6@gmail.com. He's currently open to freelance opportunities, collaborations, and interesting projects."
-    },
-    { 
-      keywords: ['experience', 'background', 'history', 'career', 'professional'],
-      response: "KBOY has experience in web and mobile development. He started with frontend web technologies and has since expanded into mobile app development. His approach combines technical expertise with an eye for design, and he's always eager to grow and contribute to meaningful projects."
-    },
-    { 
-      keywords: ['e-commerce', 'online store', 'shop'],
-      response: "The E-Commerce Platform project is built with Next.js, TypeScript, and Tailwind CSS. It includes features like product browsing, cart functionality, payment processing with Stripe, and an admin dashboard for managing products and orders."
-    },
-    { 
-      keywords: ['fitness', 'mobile app', 'react native'],
-      response: "The Mobile Fitness App is developed with React Native and Expo. It allows users to track workouts, set fitness goals, and visualize progress with charts. It also integrates with Firebase for data storage and authentication."
-    },
-    { 
-      keywords: ['task', 'management', 'dashboard'],
-      response: "The Task Management Dashboard is a collaborative tool built with React, Node.js, and MongoDB. It features real-time updates using Socket.io, customizable workflows, and task tracking functionality."
-    },
-    // Work ethic and goals
-    {
-      keywords: ['goal', 'passion', 'aspire', 'future', 'plan', 'dream', 'aim'],
-      response: "As a web and mobile developer, Francisco aims to create impactful digital experiences that solve real problems. He's committed to continuous learning and aspires to work on projects that push technological boundaries while delivering value to users."
-    },
-    // Availability
-    {
-      keywords: ['available', 'freelance', 'hire', 'job', 'work with', 'employment'],
-      response: "Francisco is currently available for freelance projects, internships, and collaboration opportunities. He's particularly interested in challenging projects that allow him to expand his skills in web and mobile development."
+      response: "I'm currently a 3rd year Bachelor of Science in Information Technology (BSIT) student at the University of Southern Philippines Foundation (USPF)."
     }
   ];
 
