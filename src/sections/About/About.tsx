@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { FaHtml5, FaCss3Alt, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaPhp, FaFigma, FaDatabase } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFlutter, SiFirebase, SiSupabase, SiLaravel, SiMysql, SiPostgresql, SiSqlite } from "react-icons/si";
+import { FaHtml5, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaPhp, FaFigma, FaDatabase, FaVuejs, FaBootstrap, FaAndroid, FaBox, FaToolbox } from "react-icons/fa";
+import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFlutter, SiFirebase, SiSupabase, SiLaravel, SiMysql, SiPostgresql, SiSqlite, SiAndroidstudio } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
+import { VscCode } from "react-icons/vsc";
 
 const About = () => {
   const skills = [
@@ -12,18 +13,22 @@ const About = () => {
     { name: "JavaScript", icon: <div className="text-yellow-400 text-2xl">JS</div> },
     { name: "TypeScript", icon: <SiTypescript className="text-blue-500 text-2xl" /> },
     { name: "React", icon: <FaReact className="text-blue-400 text-2xl" /> },
+    { name: "Vue.js", icon: <FaVuejs className="text-green-500 text-2xl" /> },
     { name: "Next.js", icon: <SiNextdotjs className="text-slate-800 text-2xl" /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-500 text-2xl" /> },
+    { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600 text-2xl" /> },
     
     // Mobile
     { name: "React Native", icon: <TbBrandReactNative className="text-blue-500 text-2xl" /> },
     { name: "Flutter", icon: <SiFlutter className="text-blue-400 text-2xl" /> },
+    { name: "Android Studio", icon: <SiAndroidstudio className="text-green-500 text-2xl" /> },
     
     // Backend
     { name: "Node.js", icon: <FaNodeJs className="text-green-600 text-2xl" /> },
     { name: "PHP", icon: <FaPhp className="text-purple-500 text-2xl" /> },
     { name: "Laravel", icon: <SiLaravel className="text-red-500 text-2xl" /> },
     { name: "Laravel Inertia", icon: <SiLaravel className="text-pink-500 text-2xl" /> },
+    { name: "Laravel Backpack", icon: <div className="text-yellow-600 text-xl font-bold flex items-center justify-center"><SiLaravel className="text-red-500 mr-1" /><span>BP</span></div> },
     
     // Databases
     { name: "MySQL", icon: <SiMysql className="text-blue-700 text-2xl" /> },
@@ -38,6 +43,7 @@ const About = () => {
     // Tools
     { name: "Git", icon: <FaGitAlt className="text-orange-600 text-2xl" /> },
     { name: "GitHub", icon: <FaGithub className="text-slate-800 text-2xl" /> },
+    { name: "VS Code", icon: <VscCode className="text-blue-500 text-2xl" /> },
     { name: "Figma", icon: <FaFigma className="text-purple-600 text-2xl" /> },
     { name: "Laragon", icon: <div className="text-red-500 text-xl font-bold">L</div> }
   ];
@@ -72,14 +78,14 @@ const About = () => {
             
             {/* Image - right side */}
             <div className="md:w-1/2 flex justify-center animate-fadeInRight">
-              <div className="relative w-80 h-80 rounded-lg overflow-hidden shadow-xl">
-                {/* Replace with your actual image */}
+              <div className="relative w-full h-auto rounded-lg overflow-hidden shadow-xl max-w-md mx-auto">
                 <Image 
-                  src="/public/images/about.png" 
+                  src="/images/about.png" 
                   alt="Developer" 
-                  width={320} 
-                  height={320}
-                  className="object-cover"
+                  width={500}   
+                  height={500}
+                  className="object-cover w-full"
+                  priority
                 />
               </div>
             </div>
