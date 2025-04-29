@@ -191,7 +191,7 @@ const Achievements = () => {
                       <div className="bg-[#fbfbfe] p-3 rounded-lg border border-[#dedcff] shadow-inner">
                         <div className="aspect-[4/3] relative">
                           <Image 
-                            src="/green.jpg" 
+                            src="/images/green.jpg" 
                             alt="Hackathon Certificate" 
                             fill
                             className="object-contain rounded shadow-sm"
@@ -232,7 +232,7 @@ const Achievements = () => {
                       <div className="bg-[#fbfbfe] p-3 rounded-lg border border-[#dedcff] shadow-inner">
                         <div className="aspect-[4/3] relative">
                           <Image 
-                            src="/interschool.jpg" 
+                            src="/images/interschool.jpg" 
                             alt="Interschool Hackathon Certificate" 
                             fill
                             className="object-contain rounded shadow-sm"
