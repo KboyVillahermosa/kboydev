@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,10 +13,11 @@ const Navbar = () => {
   return (
     <nav className="bg-[#fbfbfe] border-b border-[#dedcff] shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-[#433bff]">
-          KBOY
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold text-[#433bff]">
+          <Image src="/images/logo.png" alt="Logo" width={32} height={32} />
+          <span>Kboy</span>
         </Link>
-
+        
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           <Link href="/" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">

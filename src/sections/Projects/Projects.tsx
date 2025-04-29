@@ -1,36 +1,58 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+  
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-featured online store with cart functionality, payment processing, and admin dashboard.",
-      technologies: ["Next.js", "Typescript", "Tailwind CSS", "Stripe"],
-      imageUrl: "/images/about.png",
-      demoUrl: "#",
-      repoUrl: "#"
+      title: "USPF Research Archive",
+      description: "USPF Research Archive is a digital platform where students and faculty can upload theses, dissertations, and research publications. It also automatically generates related studies, helping users find relevant academic work for their research.",
+      technologies: ["Laravel", "Backpack", "Tailwind CSS", "MySQL"],
+      imageUrl: "/images/uspf_archive.png",
+      demoUrl: "https://github.com/KboyVillahermosa/USPF-ARCHIVE-CAPSTONE",
+      repoUrl: "https://github.com/KboyVillahermosa/USPF-ARCHIVE-CAPSTONE"
     },
     {
       id: 2,
-      title: "Mobile Fitness App",
-      description: "A React Native app for tracking workouts, setting goals, and monitoring progress with visual analytics.",
-      technologies: ["React Native", "Expo", "Firebase", "Chart.js"],
-      imageUrl: "/images/mobile.jpg",
-      demoUrl: "#",
-      repoUrl: "#"
+      title: "Techtool",
+      description: "Your go-to resource for improving your computer science and IT ",
+      technologies: ["Html", "Css", "JS", "Php", "MySql", "Tailwind CSS"],
+      imageUrl: "/images/tech.png",
+      demoUrl: "https://github.com/KboyVillahermosa/TechTool",
+      repoUrl: "https://github.com/KboyVillahermosa/TechTool"
     },
     {
       id: 3,
-      title: "Task Management Dashboard",
-      description: "A collaborative project management tool with real-time updates and customizable workflows.",
-      technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
-      imageUrl: "/placeholder-project.jpg",
-      demoUrl: "#",
-      repoUrl: "#"
+      title: "Search Job",
+      description: "Our platform aggregates job listings from leading sources, including LinkedIn, Indeed, Glassdoor, and more, allowing you to search, filter, and explore opportunities all in one place.",
+      technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
+      imageUrl: "/images/search.png",
+      demoUrl: "https://github.com/KboyVillahermosa/JobScout",
+      repoUrl: "https://github.com/KboyVillahermosa/JobScout"
+    },
+    {
+      id: 4,
+      title: "Ascentra",
+      description: "Discover and track hiking spots around Cebu. Post your adventures, monitor your progress and routes, and access maps of all local trails.",
+      technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
+      imageUrl: "/images/ascentra.jpg",
+      demoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise",
+      repoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise"
     },
   ];
+
+  // Only show the first 3 projects unless showAll is true
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+  
+  // Toggle the showAll state
+  const toggleShowAll = () => {
+    setShowAll(!showAll);
+  };
 
   return (
     <section id="projects" className="py-24 bg-[#fbfbfe]">
@@ -46,7 +68,7 @@ const Projects = () => {
           
           {/* Timeline nodes */}
           <div className="space-y-32">
-            {projects.map((project, index) => (
+            {visibleProjects.map((project, index) => (
               <div key={project.id} className="relative">
                 {/* Timeline dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-[#433bff] z-10 hidden md:block ring-4 ring-[#dedcff]/30"></div>
@@ -54,7 +76,7 @@ const Projects = () => {
                 {/* Date indicator */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 top-8 hidden md:block">
                   <span className="text-xs text-[#050315]/60 bg-[#fbfbfe] px-2 py-1 rounded-full shadow-sm border border-[#dedcff]">
-                    {2023 - index}
+                    projects
                   </span>
                 </div>
                 
@@ -69,7 +91,7 @@ const Projects = () => {
                         <p className="text-[#050315]/80 mb-6 leading-relaxed">{project.description}</p>
                         
                         <div className="mb-6">
-                          <div className="flex flex-wrap gap-2 justify-end">
+                          <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-end' : ''}`}>
                             {project.technologies.map((tech, techIndex) => (
                               <span 
                                 key={techIndex} 
@@ -81,7 +103,7 @@ const Projects = () => {
                           </div>
                         </div>
                         
-                        <div className="flex space-x-6 justify-end">
+                        <div className={`flex space-x-6 ${index % 2 === 0 ? 'justify-end' : ''}`}>
                           <Link 
                             href={project.demoUrl} 
                             className="text-[#2f27ce] hover:text-[#433bff] font-medium text-sm flex items-center transition-colors"
@@ -155,8 +177,11 @@ const Projects = () => {
                   {/* Empty space for timeline separation */}
                   <div className="hidden md:block md:w-2/12"></div>
                   
-                  {/* Right side (or left on odd items) */}
+                  {/* Rest of your existing code for project display... */}
                   <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'}`}>
+                    {/* Your existing layout for right side content */}
+                    {/* ... */}
+                    {/* Keep your existing code here */}
                     {index % 2 === 0 ? (
                       // Image when index is even (0, 2, 4...)
                       project.technologies.includes("React Native") || project.technologies.includes("Mobile") ? (
@@ -274,24 +299,34 @@ const Projects = () => {
                       </div>
                     )}
                   </div>
-
-                  {/* Mobile-specific parts hidden in desktop view */}
-                  <div className="md:hidden space-y-8">
-                    {/* Content for mobile view would go here */}
-                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
         
+        {/* See More/See Less Button */}
         <div className="mt-24 text-center">
-          <Link 
-            href="/all-projects" 
+          <button 
+            onClick={toggleShowAll}
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2f27ce] hover:bg-[#433bff] transition-colors duration-300"
           >
-            View All Projects
-          </Link>
+            {showAll ? (
+              <>
+                See Less
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </>
+            ) : (
+              <>
+                See More
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </>
+            )}
+          </button>
         </div>
       </div>
     </section>
