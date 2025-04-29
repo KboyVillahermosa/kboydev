@@ -22,23 +22,26 @@ const Header = () => {
       {/* Subtle accent line */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2f27ce] via-[#433bff] to-[#2f27ce]"></div>
       
-      {/* Responsive geometric pattern elements - right side */}
-      <div className="absolute top-[10vh] right-[5vw] w-[20vw] md:w-[15vw] lg:w-[10vw] h-[25vh] bg-[#433bff] rounded-lg opacity-90 z-1"></div>
-      
-      <div className="absolute hidden sm:block top-[8vh] right-[30vw] w-[12vw] md:w-[10vw] lg:w-[8vw] h-[12vh] bg-[#dedcff] rounded-lg opacity-60 z-1"></div>
-      
-      <div className="absolute top-[40vh] right-[8vw] w-[15vw] md:w-[12vw] lg:w-[8vw] h-[12vh] bg-[#050315] rounded-lg opacity-80 z-1"></div>
-      
-      <div className="absolute hidden sm:block top-[25vh] right-[25vw] w-[18vw] md:w-[15vw] lg:w-[12vw] h-[18vh] bg-[#dedcff] rounded-lg opacity-40 z-1"></div>
-      
-      <div className="absolute hidden md:block top-[55vh] right-[25vw] w-[20vw] md:w-[15vw] lg:w-[13vw] h-[8vh] bg-[#2f27ce] rounded-lg opacity-70 z-1"></div>
-      
-      <div className="absolute hidden md:block top-[65vh] right-[5vw] w-[14vw] md:w-[10vw] h-[8vh] bg-[#dedcff] rounded-lg opacity-40 z-1"></div>
-      
-      <div className="absolute bottom-[12vh] right-[18vw] w-[18vw] md:w-[15vw] lg:w-[12vw] h-[12vh] bg-[#433bff] rounded-lg opacity-60 z-1"></div>
+      {/* Pattern container - positioned to avoid text content */}
+      <div className="absolute top-0 bottom-0 right-0 w-[40%] sm:w-[35%] md:w-[45%] lg:w-[40%] pointer-events-none z-1 overflow-hidden">
+        {/* Responsive geometric pattern elements - right side */}
+        <div className="absolute top-[10vh] right-[5vw] w-[50%] md:w-[40%] lg:w-[30%] h-[25vh] bg-[#433bff] rounded-lg opacity-90"></div>
+        
+        <div className="absolute hidden sm:block top-[8vh] right-[calc(5vw+22%)] w-[30%] md:w-[25%] lg:w-[20%] h-[12vh] bg-[#dedcff] rounded-lg opacity-60"></div>
+        
+        <div className="absolute top-[40vh] right-[12vw] w-[38%] md:w-[30%] lg:w-[25%] h-[12vh] bg-[#050315] rounded-lg opacity-80"></div>
+        
+        <div className="absolute hidden sm:block top-[25vh] right-[20vw] w-[45%] md:w-[38%] lg:w-[30%] h-[18vh] bg-[#dedcff] rounded-lg opacity-40"></div>
+        
+        <div className="absolute hidden md:block top-[55vh] right-[15vw] w-[42%] lg:w-[35%] h-[8vh] bg-[#2f27ce] rounded-lg opacity-70"></div>
+        
+        <div className="absolute hidden md:block top-[65vh] right-[5vw] w-[30%] h-[8vh] bg-[#dedcff] rounded-lg opacity-40"></div>
+        
+        <div className="absolute bottom-[12vh] right-[10vw] w-[40%] lg:w-[35%] h-[12vh] bg-[#433bff] rounded-lg opacity-60"></div>
+      </div>
       
       <div className="container mx-auto px-4 py-12 flex flex-col justify-center items-start h-screen relative z-10">
-        <div className="max-w-3xl mr-auto ml-0 md:ml-12">
+        <div className="max-w-3xl mr-auto ml-0 md:ml-12 bg-[#fbfbfe]/70 backdrop-blur-sm p-6">
           {/* Subtle label */}
           <div className="inline-block mb-8 pl-3 border-l-2 border-[#433bff]">
             <span className="text-[#2f27ce] font-medium tracking-wide text-sm">WEB & MOBILE DEVELOPER</span>

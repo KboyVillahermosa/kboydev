@@ -10,31 +10,31 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-slate-900 shadow-lg sticky top-0 z-50">
+    <nav className="bg-[#fbfbfe] border-b border-[#dedcff] shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-teal-400">
+        <Link href="/" className="text-xl font-bold text-[#433bff]">
           KBOY
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
-          <Link href="/" className="text-slate-300 hover:text-teal-400 transition-colors font-medium">
+          <Link href="/" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
             Home
           </Link>
-          <Link href="#about" className="text-slate-300 hover:text-teal-400 transition-colors font-medium">
+          <Link href="#about" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
             About
           </Link>
-          <Link href="#projects" className="text-slate-300 hover:text-teal-400 transition-colors font-medium">
+          <Link href="#projects" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
             Projects
           </Link>
-          <Link href="#contact" className="text-slate-300 hover:text-teal-400 transition-colors font-medium">
+          <Link href="#contact" className="text-[#050315]/80 hover:text-[#433bff] transition-colors font-medium">
             Contact
           </Link>
         </div>
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden focus:outline-none text-slate-300 hover:text-teal-400"
+          className="md:hidden focus:outline-none text-[#050315]/80 hover:text-[#433bff]"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -74,32 +74,32 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-slate-800 shadow-inner border-t border-slate-700">
+        <div className="md:hidden bg-[#fbfbfe] shadow-inner border-t border-[#dedcff]">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
             <Link
               href="/"
-              className="text-slate-300 hover:text-teal-400 transition-colors py-2"
+              className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
               onClick={toggleMenu}
             >
               Home
             </Link>
             <Link
               href="#about"
-              className="text-slate-300 hover:text-teal-400 transition-colors py-2"
+              className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
               onClick={toggleMenu}
             >
               About
             </Link>
             <Link
               href="#projects"
-              className="text-slate-300 hover:text-teal-400 transition-colors py-2"
+              className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
               onClick={toggleMenu}
             >
               Projects
             </Link>
             <Link
               href="#contact"
-              className="text-slate-300 hover:text-teal-400 transition-colors py-2"
+              className="text-[#050315]/80 hover:text-[#433bff] transition-colors py-2"
               onClick={toggleMenu}
             >
               Contact
