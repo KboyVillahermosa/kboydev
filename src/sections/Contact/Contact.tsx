@@ -32,7 +32,7 @@ const Contact = () => {
                     className="flex items-center text-[#050315]/80 hover:text-[#2f27ce] transition-all"
                   >
                     <FaEnvelope className="mr-3 text-[#2f27ce]" />
-                   villahermosafrancisco@gmail.com
+                   villahermosafrancisco6@gmail.com
                   </a>
                   <a 
                     href="tel:+639123456789" 
