@@ -76,7 +76,7 @@ const Header = () => {
             >
               <span className="absolute inset-0 w-full h-full border border-[#dedcff] group-hover:border-[#2f27ce] transition-colors duration-300"></span>
               <span className="relative text-[#050315] group-hover:text-[#2f27ce] transition-colors duration-300">
-                Contact Me
+                Contact M
               </span>
             </Link>
           </div>
