@@ -63,241 +63,147 @@ const Projects = () => {
         </div>
         
         <div className="relative">
-          {/* Timeline center line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-[#dedcff] hidden md:block"></div>
+          {/* Timeline center line with improved mobile visibility */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[3px] md:w-[2px] md:transform md:-translate-x-1/2 
+                       bg-gradient-to-b from-[#433bff]/20 via-[#433bff] to-[#433bff]/20"></div>
           
           {/* Timeline nodes */}
-          <div className="space-y-32">
+          <div className="space-y-24 md:space-y-32">
             {visibleProjects.map((project, index) => (
-              <div key={project.id} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full bg-[#433bff] z-10 hidden md:block ring-4 ring-[#dedcff]/30"></div>
-                
-                {/* Date indicator */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-8 hidden md:block">
-                  <span className="text-xs text-[#050315]/60 bg-[#fbfbfe] px-2 py-1 rounded-full shadow-sm border border-[#dedcff]">
-                    projects
+              <div key={project.id} className="relative group">
+                {/* Timeline node - improved for mobile */}
+                <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 md:w-5 md:h-5 rounded-full 
+                             bg-[#433bff] z-10 ring-4 ring-[#dedcff]/30 shadow-lg shadow-[#433bff]/20 
+                             transition-all duration-300 group-hover:scale-110 group-hover:ring-[#433bff]/50">
+                  <span className="absolute inset-0 flex items-center justify-center text-white text-xs font-bold">
+                    {index + 1}
                   </span>
                 </div>
                 
-                {/* Project content */}
-                <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch`}>
-                  {/* Left side (or right on odd items) */}
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
-                    {index % 2 === 0 ? (
-                      // Text content when index is even (0, 2, 4...)
-                      <div className="relative">
-                        <h3 className="text-2xl font-bold mb-3 text-[#050315]">{project.title}</h3>
-                        <p className="text-[#050315]/80 mb-6 leading-relaxed">{project.description}</p>
-                        
-                        <div className="mb-6">
-                          <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-end' : ''}`}>
-                            {project.technologies.map((tech, techIndex) => (
-                              <span 
-                                key={techIndex} 
-                                className="border border-[#dedcff] bg-white text-[#050315]/80 text-xs px-3 py-1 rounded-full shadow-sm"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
+                {/* Year indicator - repositioned for better mobile visibility */}
+                <div className="absolute left-6 md:left-1/2 top-10 md:top-8 transform -translate-x-1/2 md:-translate-x-1/2">
+                  <span className="text-xs font-medium text-[#050315]/70 bg-[#fbfbfe] px-3 py-1.5 rounded-full 
+                               shadow-sm border border-[#dedcff] transition-all duration-300 group-hover:border-[#433bff]/50">
+                    {2023 - index}
+                  </span>
+                </div>
+                
+                {/* Project content - improved mobile layout */}
+                <div className={`flex flex-col ml-14 md:ml-0 md:${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-stretch`}>
+                  {/* Content section - better padding for mobile */}
+                  <div className={`w-full pt-16 pb-4 md:py-0 md:w-5/12 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
+                    <div className="relative md:mt-0">
+                      <h3 className="text-2xl font-bold mb-3 text-[#050315]">{project.title}</h3>
+                      <p className="text-[#050315]/80 mb-6 leading-relaxed">{project.description}</p>
+                      
+                      <div className="mb-6">
+                        <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+                          {project.technologies.map((tech, techIndex) => (
+                            <span 
+                              key={techIndex} 
+                              className="border border-[#dedcff] bg-white text-[#050315]/80 text-xs px-3 py-1 rounded-full shadow-sm"
+                            >
+                              {tech}
+                            </span>
+                          ))}
                         </div>
-                        
-                        <div className={`flex space-x-6 ${index % 2 === 0 ? 'justify-end' : ''}`}>
-                          <Link 
-                            href={project.demoUrl} 
-                            className="text-[#2f27ce] hover:text-[#433bff] font-medium text-sm flex items-center transition-colors"
-                            aria-label={`View ${project.title} demo`}
-                          >
-                            <span>View Project</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
-                          </Link>
-                          <Link 
-                            href={project.repoUrl}
-                            className="text-[#050315]/60 hover:text-[#050315] font-medium text-sm flex items-center transition-colors"
-                            aria-label={`View ${project.title} source code`}
-                          >
-                            <span>Source Code</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </Link>
-                        </div>
-                        
-                        {/* Connect line to the timeline - right-to-center */}
-                        <div className="absolute right-[-16px] top-7 w-[16px] h-[1px] bg-[#dedcff] hidden md:block"></div>
                       </div>
-                    ) : (
-                      // Image when index is odd (1, 3, 5...)
-                      <div className="relative">
-                        <div className="overflow-hidden rounded-lg shadow-md bg-white p-2">
-                          <div className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded">
-                            {project.imageUrl ? (
-                              <Image
-                                src={project.imageUrl}
-                                alt={project.title}
-                                width={600}
-                                height={340}
-                                className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
-                                priority={index === 0}
-                              />
-                            ) : (
-                              <div className="absolute inset-0 flex items-center justify-center text-[#050315]/40 bg-[#dedcff]/30">
-                                <span className="text-sm font-medium">Project Preview</span>
-                              </div>
-                            )}
-                            
-                            {/* Subtle overlay with project title on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#050315]/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                              <div className="p-6 w-full">
-                                <h4 className="text-white font-medium text-lg">{project.title}</h4>
-                                <p className="text-[#dedcff] text-sm mt-1">View project details</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        {/* Browser mockup frame - optional */}
-                        <div className="absolute -top-2 -left-2 -right-2 h-6 bg-[#050315] rounded-t-lg hidden md:block">
-                          <div className="flex items-center h-full px-3 space-x-1">
-                            <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                            <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                            <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                          </div>
-                        </div>
-                        
-                        {/* Connect line to the timeline - right-to-center for odd index left images */}
-                        <div className="absolute right-[-16px] top-7 w-[16px] h-[1px] bg-[#dedcff] hidden md:block"></div>
+                      
+                      <div className={`flex space-x-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+                        <Link 
+                          href={project.demoUrl} 
+                          className="text-[#2f27ce] hover:text-[#433bff] font-medium text-sm flex items-center transition-colors"
+                          aria-label={`View ${project.title} demo`}
+                        >
+                          <span>View Project</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </Link>
+                        <Link 
+                          href={project.repoUrl}
+                          className="text-[#050315]/60 hover:text-[#050315] font-medium text-sm flex items-center transition-colors"
+                          aria-label={`View ${project.title} source code`}
+                        >
+                          <span>Source Code</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </Link>
                       </div>
-                    )}
-                  </div>
-                  
-                  {/* Empty space for timeline separation */}
-                  <div className="hidden md:block md:w-2/12"></div>
-                  
-                  {/* Rest of your existing code for project display... */}
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'}`}>
-                    {/* Your existing layout for right side content */}
-                    {/* ... */}
-                    {/* Keep your existing code here */}
-                    {index % 2 === 0 ? (
-                      // Image when index is even (0, 2, 4...)
-                      project.technologies.includes("React Native") || project.technologies.includes("Mobile") ? (
-                        <div className="relative hidden md:block">
-                          <div className="max-w-[220px] mx-auto">
-                            <div className="relative rounded-[38px] border-[12px] border-[#050315] shadow-xl bg-black p-px">
-                              {/* Notch */}
-                              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[90px] h-[25px] bg-black rounded-b-[14px] z-10"></div>
-                              
-                              {/* Actual Screen */}
-                              <div className="overflow-hidden rounded-[26px] aspect-[9/19.5]">
-                                {project.imageUrl ? (
-                                  <Image
-                                    src={project.imageUrl}
-                                    alt={project.title}
-                                    width={400}
-                                    height={800}
-                                    className="object-cover w-full h-full"
-                                  />
-                                ) : (
-                                  <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-[#050315] to-[#2f27ce] text-white">
-                                    <span className="text-sm font-medium">{project.title}</span>
-                                  </div>
-                                )}
-                              </div>
-                              
-                              {/* Home indicator */}
-                              <div className="absolute bottom-[10px] left-1/2 transform -translate-x-1/2 w-[70px] h-[4px] bg-white rounded-full opacity-90"></div>
-                            </div>
-                          </div>
-                          
-                          {/* Connect line to the timeline */}
-                          <div className="absolute left-[-16px] top-28 w-[16px] h-[1px] bg-[#dedcff] hidden md:block"></div>
+                      
+                      {/* Desktop connecting lines (hidden on mobile) */}
+                      {index % 2 === 0 ? (
+                        <div className="absolute right-[-16px] top-7 hidden md:flex items-center">
+                          <div className="h-[2px] bg-gradient-to-r from-[#050315]/10 to-[#433bff] w-[16px] 
+                                       group-hover:w-[20px] transition-all duration-300"></div>
+                          <div className="w-2 h-2 rounded-full bg-[#433bff] opacity-0 
+                                       group-hover:opacity-100 transition-all duration-300"></div>
                         </div>
                       ) : (
-                        <div className="overflow-hidden rounded-lg shadow-lg bg-[#050315] p-0">
-                          {/* Browser mockup frame */}
-                          <div className="h-8 bg-[#050315] rounded-t-lg flex items-center px-3 space-x-1.5">
-                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                            <div className="ml-4 w-1/2 h-4 bg-[#050315]/70 rounded-full"></div>
-                          </div>
+                        <div className="absolute left-[-16px] top-7 hidden md:flex items-center">
+                          <div className="w-2 h-2 rounded-full bg-[#433bff] opacity-0 
+                                       group-hover:opacity-100 transition-all duration-300"></div>
+                          <div className="h-[2px] bg-gradient-to-l from-[#050315]/10 to-[#433bff] w-[16px] 
+                                       group-hover:w-[20px] transition-all duration-300"></div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* Empty space for timeline - hidden on mobile */}
+                  <div className="hidden md:block md:w-2/12 relative">
+                    <div className="absolute inset-x-0 top-7 h-[1px] border-t border-dashed border-[#dedcff]/50 opacity-0 
+                                 group-hover:opacity-100 transition-all duration-500"></div>
+                  </div>
+                  
+                  {/* Image section - improved mobile spacing */}
+                  <div className={`w-full mb-8 md:mb-0 md:mt-0 md:w-5/12 ${index % 2 === 0 ? 'md:pl-16' : 'md:pr-16 md:text-right'}`}>
+                    <div className="relative">
+                      <div className="overflow-hidden rounded-lg shadow-md bg-white p-2">
+                        <div className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded">
+                          {project.imageUrl ? (
+                            <Image
+                              src={project.imageUrl}
+                              alt={project.title}
+                              width={600}
+                              height={340}
+                              className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
+                              priority={index === 0}
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-[#050315]/40 bg-[#dedcff]/30">
+                              <span className="text-sm font-medium">Project Preview</span>
+                            </div>
+                          )}
                           
-                          <div className="aspect-w-16 aspect-h-9 relative overflow-hidden border-t border-[#050315]/70">
-                            {project.imageUrl ? (
-                              <Image
-                                src={project.imageUrl}
-                                alt={project.title}
-                                width={600}
-                                height={340}
-                                className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
-                                priority={index === 0}
-                              />
-                            ) : (
-                              <div className="absolute inset-0 flex items-center justify-center text-[#050315]/40 bg-[#dedcff]/30">
-                                <span className="text-sm font-medium">Project Preview</span>
-                              </div>
-                            )}
-                            
-                            {/* Overlay with project title on hover */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#050315]/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
-                              <div className="p-6 w-full">
-                                <h4 className="text-white font-medium text-lg">{project.title}</h4>
-                                <p className="text-[#dedcff] text-sm mt-1">View project details</p>
-                              </div>
+                          {/* Mobile-friendly overlay with project title */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#050315]/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
+                            <div className="p-4 md:p-6 w-full">
+                              <h4 className="text-white font-medium text-lg">{project.title}</h4>
+                              <p className="text-[#dedcff] text-sm mt-1">View project details</p>
                             </div>
                           </div>
                         </div>
-                      )
-                    ) : (
-                      // Text content when index is odd (1, 3, 5...)
-                      <div className="relative">
-                        <h3 className="text-2xl font-bold mb-3 text-[#050315]">{project.title}</h3>
-                        <p className="text-[#050315]/80 mb-6 leading-relaxed">{project.description}</p>
-                        
-                        <div className="mb-6">
-                          <div className="flex flex-wrap gap-2 justify-end">
-                            {project.technologies.map((tech, techIndex) => (
-                              <span 
-                                key={techIndex} 
-                                className="border border-[#dedcff] bg-white text-[#050315]/80 text-xs px-3 py-1 rounded-full shadow-sm"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div className="flex space-x-6 justify-end">
-                          <Link 
-                            href={project.demoUrl} 
-                            className="text-[#2f27ce] hover:text-[#433bff] font-medium text-sm flex items-center transition-colors"
-                            aria-label={`View ${project.title} demo`}
-                          >
-                            <span>View Project</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                            </svg>
-                          </Link>
-                          <Link 
-                            href={project.repoUrl}
-                            className="text-[#050315]/60 hover:text-[#050315] font-medium text-sm flex items-center transition-colors"
-                            aria-label={`View ${project.title} source code`}
-                          >
-                            <span>Source Code</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </Link>
-                        </div>
-                        
-                        {/* Connect line to the timeline - left-to-center */}
-                        <div className="absolute left-[-16px] top-7 w-[16px] h-[1px] bg-[#dedcff] hidden md:block"></div>
                       </div>
-                    )}
+                      
+                      {/* Desktop connecting lines (hidden on mobile) */}
+                      {index % 2 === 0 ? (
+                        <div className="absolute left-[-16px] top-28 hidden md:flex items-center">
+                          <div className="w-2 h-2 rounded-full bg-[#433bff] opacity-0 
+                                       group-hover:opacity-100 transition-all duration-300"></div>
+                          <div className="h-[2px] bg-gradient-to-l from-[#050315]/10 to-[#433bff] w-[16px] 
+                                       group-hover:w-[20px] transition-all duration-300"></div>
+                        </div>
+                      ) : (
+                        <div className="absolute right-[-16px] top-7 hidden md:flex items-center">
+                          <div className="h-[2px] bg-gradient-to-r from-[#050315]/10 to-[#433bff] w-[16px] 
+                                       group-hover:w-[20px] transition-all duration-300"></div>
+                          <div className="w-2 h-2 rounded-full bg-[#433bff] opacity-0 
+                                       group-hover:opacity-100 transition-all duration-300"></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
