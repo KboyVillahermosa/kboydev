@@ -78,7 +78,7 @@ const Projects = () => {
       technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
       images: [
         "/images/ascentra.jpg",
-        "/images/10.jpg",
+        "/images/ascentra1.jpg",
       ],
       demoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise",
       repoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise"
@@ -178,7 +178,7 @@ const Projects = () => {
 
             <div className="space-y-24 md:space-y-32">
               {visibleProjects.map((project, index) => (
-                <div key={project.id} className="relative group">
+                <div key={project.id} className={`relative group`}>
                   <div className="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 md:w-5 md:h-5 rounded-full 
                               bg-[#433bff] z-10 ring-4 ring-[#dedcff]/30 shadow-lg shadow-[#433bff]/20 
                               transition-all duration-300 group-hover:scale-110 group-hover:ring-[#433bff]/50">
@@ -187,14 +187,14 @@ const Projects = () => {
                     </span>
                   </div>
 
-                  <div className="absolute left-6 md:left-1/2 top-10 md:top-8 transform -translate-x-1/2 md:-translate-x-1/2">
+                  <div className="absolute left-6 md:left-1/2 top-10 md:top-8 transform -translate-x-1/2">
                     <span className="text-xs font-medium text-[#050315]/70 bg-[#fbfbfe] px-3 py-1.5 rounded-full 
                                 shadow-sm border border-[#dedcff] transition-all duration-300 group-hover:border-[#433bff]/50">
                       {2023 - index}
                     </span>
                   </div>
 
-                  <div className={`flex flex-col ml-14 md:ml-0 md:${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-stretch`}>
+                  <div className={`flex flex-col ml-14 md:ml-0 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch`}>
                     <div className={`w-full pt-16 pb-4 md:py-0 md:w-5/12 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
                       <div className="relative md:mt-0">
                         <h3 className="text-2xl font-bold mb-3 text-[#050315]">{project.title}</h3>
