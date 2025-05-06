@@ -33,9 +33,16 @@ const Projects = () => {
       description: "USPF Research Archive is a digital platform where students and faculty can upload theses, dissertations, and research publications. It also automatically generates related studies, helping users find relevant academic work for their research.",
       technologies: ["Laravel", "Backpack", "Tailwind CSS", "MySQL"],
       images: [
-        "/images/uspf_archive.png",
-        "/images/uspf_archive_1.png",
-        "/images/uspf_archive_2.png",
+        "/images/uspf1.png",
+        "/images/uspf2.png",
+        "/images/uspf3.png",
+        "/images/uspf4.png",
+        "/images/uspf5.png",
+        "/images/uspf6.png",
+        "/images/uspf7.png",
+        "/images/uspf8.png",
+        "/images/uspf9.png",
+        "/images/uspf10.png",
       ],
       demoUrl: "https://github.com/KboyVillahermosa/USPF-ARCHIVE-CAPSTONE",
       repoUrl: "https://github.com/KboyVillahermosa/USPF-ARCHIVE-CAPSTONE"
@@ -67,6 +74,18 @@ const Projects = () => {
     {
       id: 4,
       title: "Ascentra",
+      description: "Discover and track hiking spots around Cebu. Post your adventures, monitor your progress and routes, and access maps of all local trails.",
+      technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
+      images: [
+        "/images/ascentra.jpg",
+        "/images/ascentra_1.jpg",
+      ],
+      demoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise",
+      repoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise"
+    },
+    {
+      id: 5,
+      title: "SeviceYou",
       description: "Discover and track hiking spots around Cebu. Post your adventures, monitor your progress and routes, and access maps of all local trails.",
       technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
       images: [
@@ -124,7 +143,7 @@ const Projects = () => {
     };
   }, [modalOpen, currentProject]);
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+  const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
   const toggleShowAll = () => {
     setShowAll(!showAll);
