@@ -78,7 +78,7 @@ const Projects = () => {
       technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
       images: [
         "/images/ascentra.jpg",
-        "/images/ascentra_1.jpg",
+        "/images/10.jpg",
       ],
       demoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise",
       repoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise"
@@ -86,11 +86,25 @@ const Projects = () => {
     {
       id: 5,
       title: "SeviceYou",
-      description: "Discover and track hiking spots around Cebu. Post your adventures, monitor your progress and routes, and access maps of all local trails.",
-      technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
+      description: "is a mobile marketplace that connects skilled professionals with clients seeking services. Built with Flutter, the app enables users to discover local service providers, offer their expertise as professionals, and manage the entire service process in one place.",
+      technologies: ["Flutter", "Dart", "SqLite", "Sqflite", "path_provider", "image_picker", "file_picker", "shared_preferences"],
       images: [
-        "/images/ascentra.jpg",
-        "/images/ascentra_1.jpg",
+        "/images/2.jpg",
+        "/images/3.jpg",
+        "/images/4.jpg",
+        "/images/5.jpg",
+        "/images/6.jpg",
+        "/images/7.jpg",
+        "/images/8.jpg",
+        "/images/9.jpg",
+        "/images/10.jpg",
+        "/images/2.jpg",
+        "/images/3.jpg",
+        "/images/4.jpg",
+        "/images/5.jpg",
+        "/images/6.jpg",
+        "/images/7.jpg",
+        "/images/8.jpg",
       ],
       demoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise",
       repoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise"
