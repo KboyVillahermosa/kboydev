@@ -114,7 +114,7 @@ const ChatBot = () => {
     // Skills based on project technologies
     { 
       keywords: ['skills', 'technologies', 'tech stack', 'programming', 'languages', 'frameworks'],
-      response: "My technical skills include:\n\n• Frontend: React, TypeScript, HTML, CSS, JavaScript, Tailwind CSS\n• Backend: Node.js, PHP, Laravel, Backpack\n• Databases: MySQL, Firebase\n• Other: Git, GitHub, Responsive Design\n\nI'm comfortable with both frontend and backend development, with experience building complete web applications."
+      response: "My technical skills include:\n\n• Frontend: React, TypeScript, HTML, CSS, JavaScript, Tailwind CSS\n• Mobile: Flutter, React Native\n• Backend: Node.js, PHP, Laravel, Backpack\n• Databases: MySQL, Firebase, SQLite, PostgreSQL\n• Other: Git, GitHub, Responsive Design, Android Studio\n\nI'm comfortable with frontend, mobile, and backend development, with experience building complete web and mobile applications."
     },
     // Contact - Updated with your contact information
     { 
