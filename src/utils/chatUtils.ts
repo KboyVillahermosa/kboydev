@@ -1,37 +1,25 @@
 import { personalInfo } from '@/data/personalInfo';
 
-// Define interfaces for type safety
-interface TopicData {
-  keywords: string[];
-  response: string;
-}
-
-interface PersonalInfo {
-  [key: string]: TopicData | string[];
-  fallback: string[];
-}
-
 export function matchIntent(message: string): string {
-  const query = message.toLowerCase();
+  // Convert message to lowercase for easier matching
+  const normalizedMessage = message.toLowerCase();
   
-  // Check each topic for keyword matches
+  // Check each topic in personalInfo
   for (const [topic, data] of Object.entries(personalInfo)) {
     // Skip the fallback array
     if (topic === 'fallback') continue;
     
-    // Type assertion to help TypeScript understand the structure
-    const topicData = data as TopicData;
-    
-    if (topicData.keywords && Array.isArray(topicData.keywords)) {
-      for (const keyword of topicData.keywords) {
-        if (query.includes(keyword.toLowerCase())) {
-          return topicData.response;
-        }
-      }
+    // Check if the message contains any keywords for this topic
+    const topicData = data as { keywords: string[], response: string };
+    if (topicData.keywords.some(keyword => 
+      normalizedMessage.includes(keyword.toLowerCase())
+    )) {
+      return topicData.response;
     }
   }
   
-  // Return a random fallback response if no intent is matched
-  const fallbackResponses = personalInfo.fallback as string[];
-  return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+  // If no match is found, return a random fallback message
+  const fallbacks = personalInfo.fallback as string[];
+  const randomIndex = Math.floor(Math.random() * fallbacks.length);
+  return fallbacks[randomIndex];
 }
