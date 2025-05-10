@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from 'react';
 import { useMarkdownIt } from '@/hooks/useMarkdownIt';
+import Image from 'next/image';
 
 type Message = {
   id: string;
@@ -14,7 +15,7 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([
     { 
       id: '1', 
-      text: "Hi there! I'm kkboy's assistant. What would you like to know today?", 
+      text: "Hi there! I'm Kboy's assistant. What would you like to know today?", 
       sender: 'bot',
       timestamp: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
     }
@@ -167,12 +168,23 @@ const ChatBot = () => {
         >
           {/* Chat Header */}
           <div className="px-5 py-4 bg-slate-800 text-white flex justify-between items-center">
-            <div>
-              <div className="font-semibold text-lg">Chat with Kboy</div>
-              <div className="flex items-center text-sm text-gray-300">
-                <div className="flex items-center">
-                  <div className="h-2 w-2 rounded-full bg-green-500 mr-1.5"></div>
-                  <span>Online</span>
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
+                <Image 
+                  src="/images/profile.jpg" 
+                  alt="Kboy" 
+                  width={40} 
+                  height={40}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <div className="font-semibold text-lg">Chat with Kboy</div>
+                <div className="flex items-center text-sm text-gray-300">
+                  <div className="flex items-center">
+                    <div className="h-2 w-2 rounded-full bg-green-500 mr-1.5"></div>
+                    <span>Online</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -199,25 +211,43 @@ const ChatBot = () => {
                 className={`mb-4 ${message.sender === 'user' ? 'flex justify-end' : 'flex'}`}
               >
                 {message.sender === 'bot' ? (
-                  <div className="max-w-[80%] bg-indigo-500 text-white rounded-lg py-2.5 px-4">
-                    <div 
-                      className="markdown-content"
-                      dangerouslySetInnerHTML={{ __html: renderMarkdown(message.text) }}
-                    />
-                    {message.timestamp && (
-                      <div className="text-[10px] mt-1 text-right opacity-70">
-                        {message.timestamp}
-                      </div>
-                    )}
+                  <div className="flex items-start gap-2">
+                    <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
+                      <Image 
+                        src="/images/chatbot.jpg" 
+                        alt="Kboy" 
+                        width={32} 
+                        height={32}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="max-w-[80%] bg-indigo-500 text-white rounded-lg py-2.5 px-4">
+                      <div 
+                        className="markdown-content"
+                        dangerouslySetInnerHTML={{ __html: renderMarkdown(message.text) }}
+                      />
+                      {message.timestamp && (
+                        <div className="text-[10px] mt-1 text-right opacity-70">
+                          {message.timestamp}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 ) : (
-                  <div className="max-w-[80%] bg-indigo-100 dark:bg-indigo-900/30 rounded-lg py-2.5 px-4 text-slate-800 dark:text-slate-100">
-                    <p>{message.text}</p>
-                    {message.timestamp && (
-                      <div className="text-[10px] mt-1 text-right opacity-70">
-                        {message.timestamp}
-                      </div>
-                    )}
+                  <div className="flex items-start gap-2 flex-row-reverse">
+                    <div className="w-8 h-8 rounded-full overflow-hidden bg-indigo-100 dark:bg-indigo-800 flex-shrink-0 mt-1 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-indigo-600 dark:text-indigo-300">
+                        <path fillRule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="max-w-[80%] bg-indigo-100 dark:bg-indigo-900/30 rounded-lg py-2.5 px-4 text-slate-800 dark:text-slate-100">
+                      <p>{message.text}</p>
+                      {message.timestamp && (
+                        <div className="text-[10px] mt-1 text-right opacity-70">
+                          {message.timestamp}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
@@ -226,7 +256,16 @@ const ChatBot = () => {
             {/* Enhanced Typing Animation */}
             {isTyping && (
               <div className="flex mb-4 typing-indicator-container animate-fade-in">
-                <div className="max-w-[80%] bg-indigo-500 text-white rounded-lg py-2 px-4">
+                <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 mt-1">
+                  <Image 
+                    src="/images/kboy-avatar.jpg" 
+                    alt="Kboy" 
+                    width={32} 
+                    height={32}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="max-w-[80%] bg-indigo-500 text-white rounded-lg py-2 px-4 ml-2">
                   <div className="typing-animation">
                     <span className="dot"></span>
                     <span className="dot"></span>
