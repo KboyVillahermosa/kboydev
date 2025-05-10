@@ -45,7 +45,21 @@ I focus on creating responsive, efficient, and user-friendly applications across
   },
   projects: {
     keywords: ["projects", "portfolio", "work", "built", "created", "developed", "applications", "apps", "websites"],
-    response: "I've built several projects including responsive websites, mobile applications, and interactive UIs using modern frameworks like React, Vue.js, and Flutter."
+    response: `I've developed multiple projects spanning web and mobile platforms. Here are some highlights:
+
+**USPF Research Archive**: A digital repository platform built with Laravel, Backpack, and Tailwind CSS where students and faculty can upload and search academic research. Features auto-generation of related studies to aid researchers.
+
+**Techtool**: A comprehensive resource for computer science and IT learning built with HTML, CSS, JavaScript, PHP, MySQL and Tailwind CSS.
+
+**Search Job**: A job aggregation platform that consolidates listings from LinkedIn, Indeed, Glassdoor and other sites. Built with React, Node.js, Firebase and TypeScript.
+
+**Ascentra**: A Cebu-based hiking app for discovering trails, tracking routes, posting adventures and accessing local trail maps. Developed with React, Node.js, Firebase and TypeScript.
+
+**ServiceYou**: A Flutter mobile marketplace connecting skilled professionals with clients seeking services. Users can discover local service providers or offer their expertise as professionals. Built with Flutter, Dart, SQLite, and other mobile frameworks.
+
+Each project demonstrates my proficiency in full-stack development, responsive design, and creating intuitive user experiences across different platforms. 
+
+🔗 **[CLICK HERE TO VIEW MY GITHUB PROFILE](https://github.com/KboyVillahermosa)** 🔗 for more projects and code samples!`
   },
   contact: {
     keywords: ["contact", "email", "reach", "message", "connect", "hire", "get in touch"],
