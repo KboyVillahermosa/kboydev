@@ -49,7 +49,7 @@ const Header = () => {
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-8 text-[#050315] leading-tight">
-            I'm KBOY<span className="text-[#433bff]">.</span>
+            I'm KBoY<span className="text-[#433bff]">.</span>
           </h1>
           
           <h2 className="text-xl md:text-2xl mb-10 text-[#050315]/80 leading-relaxed max-w-2xl">
