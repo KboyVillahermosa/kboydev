@@ -171,7 +171,7 @@ const ChatBot = () => {
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
                 <Image 
-                  src="/images/profile.jpg" 
+                  src="/images/abtt.jpg" 
                   alt="Kboy" 
                   width={40} 
                   height={40}

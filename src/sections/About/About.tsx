@@ -1,6 +1,7 @@
 "use client";
 
-import { FaHtml5, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaPhp, FaFigma, FaDatabase, FaVuejs, FaBootstrap, FaAndroid, FaBox, FaToolbox } from "react-icons/fa";
+import Image from "next/image"; // Add this import
+import { FaHtml5, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaPhp, FaFigma, FaDatabase, FaVuejs, FaBootstrap } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFlutter, SiFirebase, SiSupabase, SiLaravel, SiMysql, SiPostgresql, SiSqlite, SiAndroidstudio, SiElectron } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { VscCode } from "react-icons/vsc";
@@ -102,32 +103,30 @@ const About = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 text-[#050315]">About Me</h2>
         
-        {/* Bio section with animation and abstract pattern */}
+        {/* Bio section with professional image */}
         <div className="max-w-6xl mx-auto mb-10 md:mb-16">
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
-            {/* Abstract pattern - stacks above on mobile, left side on desktop */}
-            <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] md:h-[400px] relative animate-fadeInLeft overflow-hidden">
-              {/* Responsive adjustments for the abstract shapes */}
-              <div className="absolute left-0 top-0 w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-3xl bg-[#5046ff] z-10"></div>
-              
-              <div className="absolute right-0 top-10 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-2xl bg-[#e6e5ff] z-20"></div>
-              
-              <div className="absolute right-8 top-1/2 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl bg-[#e6e5ff] z-10"></div>
-              
-              <div className="absolute right-1/3 top-[60%] w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg bg-[#2d2955] z-30"></div>
-              
-              <div className="absolute right-1/4 top-1/4 w-40 h-16 sm:w-48 sm:h-20 md:w-56 md:h-24 rounded-2xl bg-[#7a73ff] z-20"></div>
-              
-              <div className="absolute left-1/4 bottom-0 w-32 h-12 sm:w-40 sm:h-14 md:w-48 md:h-16 rounded-xl bg-[#7a73ff] z-20"></div>
-              
-              <div className="absolute left-0 bottom-1/4 w-24 h-24 sm:w-30 sm:h-30 md:w-36 md:h-36 rounded-2xl bg-[#e6e5ff] z-10"></div>
-              
-              <div className="absolute right-[45%] top-5 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl bg-[#e6e5ff] z-30"></div>
-              
-              <div className="absolute right-16 bottom-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-lg bg-[#7a73ff] z-20"></div>
+            {/* Professional image - stacks above on mobile, left side on desktop */}
+            <div className="w-full md:w-1/2 relative animate-fadeInLeft">
+              <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl shadow-lg">
+                <Image 
+                  src="/images/abtt.jpg" // Ensure you have your image at this path
+                  alt="Professional photo of Kboy Villahermosa"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  className="object-cover"
+                />
+                
+                {/* Professional subtle overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050315]/30 to-transparent"></div>
+                
+                {/* Optional: Decorative border accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#433bff] via-[#7a73ff] to-[#433bff]"></div>
+              </div>
             </div>
             
-            {/* Animated text section - right side on desktop, below on mobile */}
+            {/* Text section - right side on desktop, below on mobile */}
             <div className="w-full md:w-1/2 animate-fadeInRight">
               <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-[#050315] border-l-4 border-[#2f27ce] pl-4">Who I Am</h3>
               <p className="text-sm sm:text-base text-[#050315]/80 mb-4 sm:mb-6">
@@ -148,7 +147,7 @@ const About = () => {
           </div>
         </div>
         
-        {/* Updated Skills section */}
+        {/* Skills section remains unchanged */}
         <div className="max-w-5xl mx-auto">
           <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-center text-[#050315]">My Skills</h3>
           
