@@ -1,54 +1,101 @@
 "use client";
 
 import { FaHtml5, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaPhp, FaFigma, FaDatabase, FaVuejs, FaBootstrap, FaAndroid, FaBox, FaToolbox } from "react-icons/fa";
-import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFlutter, SiFirebase, SiSupabase, SiLaravel, SiMysql, SiPostgresql, SiSqlite, SiAndroidstudio } from "react-icons/si";
+import { SiTailwindcss, SiTypescript, SiNextdotjs, SiFlutter, SiFirebase, SiSupabase, SiLaravel, SiMysql, SiPostgresql, SiSqlite, SiAndroidstudio, SiElectron } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { VscCode } from "react-icons/vsc";
 
 const About = () => {
-  const skills = [
-    // Frontend
-    { name: "HTML/CSS", icon: <FaHtml5 className="text-orange-500 text-2xl" />, category: "Frontend" },
-    { name: "JavaScript", icon: <div className="text-yellow-400 text-2xl">JS</div>, category: "Frontend" },
-    { name: "TypeScript", icon: <SiTypescript className="text-blue-500 text-2xl" />, category: "Frontend" },
-    { name: "React", icon: <FaReact className="text-blue-400 text-2xl" />, category: "Frontend" },
-    { name: "Vue.js", icon: <FaVuejs className="text-green-500 text-2xl" />, category: "Frontend" },
-    { name: "Next.js", icon: <SiNextdotjs className="text-slate-800 text-2xl" />, category: "Frontend" },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-500 text-2xl" />, category: "Frontend" },
-    { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600 text-2xl" />, category: "Frontend" },
-    
-    // Mobile
-    { name: "React Native", icon: <TbBrandReactNative className="text-blue-500 text-2xl" />, category: "Mobile" },
-    { name: "Flutter", icon: <SiFlutter className="text-blue-400 text-2xl" />, category: "Mobile" },
-    { name: "Android Studio", icon: <SiAndroidstudio className="text-green-500 text-2xl" />, category: "Mobile" },
-    
-    // Backend
-    { name: "Node.js", icon: <FaNodeJs className="text-green-600 text-2xl" />, category: "Backend" },
-    { name: "PHP", icon: <FaPhp className="text-purple-500 text-2xl" />, category: "Backend" },
-    { name: "Laravel", icon: <SiLaravel className="text-red-500 text-2xl" />, category: "Backend" },
-    { name: "Laravel Inertia", icon: <SiLaravel className="text-pink-500 text-2xl" />, category: "Backend" },
-    { name: "Laravel Backpack", icon: <div className="text-yellow-600 text-xl font-bold flex items-center justify-center"><SiLaravel className="text-red-500 mr-1" /><span>BP</span></div>, category: "Backend" },
-    
-    // Databases
-    { name: "MySQL", icon: <SiMysql className="text-blue-700 text-2xl" />, category: "Database" },
-    { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500 text-2xl" />, category: "Database" },
-    { name: "SQLite", icon: <SiSqlite className="text-blue-400 text-2xl" />, category: "Database" },
-    
-    // Cloud & Services
-    { name: "Firebase", icon: <SiFirebase className="text-yellow-500 text-2xl" />, category: "Cloud" },
-    { name: "Supabase", icon: <SiSupabase className="text-green-500 text-2xl" />, category: "Cloud" },
-    { name: "RESTful APIs", icon: <FaDatabase className="text-slate-600 text-2xl" />, category: "Cloud" },
-    
-    // Tools
-    { name: "Git", icon: <FaGitAlt className="text-orange-600 text-2xl" />, category: "Tools" },
-    { name: "GitHub", icon: <FaGithub className="text-slate-800 text-2xl" />, category: "Tools" },
-    { name: "VS Code", icon: <VscCode className="text-blue-500 text-2xl" />, category: "Tools" },
-    { name: "Figma", icon: <FaFigma className="text-purple-600 text-2xl" />, category: "Tools" },
-    { name: "Laragon", icon: <div className="text-red-500 text-xl font-bold">L</div>, category: "Tools" }
-  ];
-
-  // Group skills by category for mobile view
-  const skillCategories = [...new Set(skills.map(skill => skill.category))];
+  const skillSets = {
+    webDevelopment: {
+      title: "Web Development",
+      skills: [
+        {
+          subcategory: "Frontend",
+          items: [
+            { name: "HTML/CSS", icon: <FaHtml5 className="text-orange-500 text-2xl" /> },
+            { name: "JavaScript", icon: <div className="text-yellow-400 text-2xl">JS</div> },
+            { name: "TypeScript", icon: <SiTypescript className="text-blue-500 text-2xl" /> },
+            { name: "React", icon: <FaReact className="text-blue-400 text-2xl" /> },
+            { name: "Vue.js", icon: <FaVuejs className="text-green-500 text-2xl" /> },
+            { name: "Next.js", icon: <SiNextdotjs className="text-slate-800 text-2xl" /> },
+            { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-500 text-2xl" /> },
+            { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600 text-2xl" /> },
+          ]
+        },
+        {
+          subcategory: "Desktop",
+          items: [
+            { name: "Electron", icon: <SiElectron className="text-teal-400 text-2xl" /> },
+          ]
+        },
+        {
+          subcategory: "Backend",
+          items: [
+            { name: "Node.js", icon: <FaNodeJs className="text-green-600 text-2xl" /> },
+            { name: "PHP", icon: <FaPhp className="text-purple-500 text-2xl" /> },
+            { name: "Laravel", icon: <SiLaravel className="text-red-500 text-2xl" /> },
+            { name: "Laravel Inertia", icon: <SiLaravel className="text-pink-500 text-2xl" /> },
+            { name: "Laravel Backpack", icon: <div className="text-yellow-600 text-xl font-bold flex items-center justify-center"><SiLaravel className="text-red-500 mr-1" /><span>BP</span></div> },
+          ]
+        },
+        {
+          subcategory: "Database",
+          items: [
+            { name: "MySQL", icon: <SiMysql className="text-blue-700 text-2xl" /> },
+            { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500 text-2xl" /> },
+            { name: "SQLite", icon: <SiSqlite className="text-blue-400 text-2xl" /> },
+          ]
+        },
+        {
+          subcategory: "Cloud & Services",
+          items: [
+            { name: "Firebase", icon: <SiFirebase className="text-yellow-500 text-2xl" /> },
+            { name: "Supabase", icon: <SiSupabase className="text-green-500 text-2xl" /> },
+            { name: "RESTful APIs", icon: <FaDatabase className="text-slate-600 text-2xl" /> },
+          ]
+        }
+      ]
+    },
+    mobileDevelopment: {
+      title: "Mobile Development",
+      skills: [
+        {
+          subcategory: "Frameworks",
+          items: [
+            { name: "React Native", icon: <TbBrandReactNative className="text-blue-500 text-2xl" /> },
+            { name: "Flutter", icon: <SiFlutter className="text-blue-400 text-2xl" /> },
+          ]
+        },
+        {
+          subcategory: "Tools",
+          items: [
+            { name: "Android Studio", icon: <SiAndroidstudio className="text-green-500 text-2xl" /> },
+          ]
+        }
+      ]
+    },
+    developmentTools: {
+      title: "Development Tools",
+      skills: [
+        {
+          subcategory: "Version Control & IDE",
+          items: [
+            { name: "Git", icon: <FaGitAlt className="text-orange-600 text-2xl" /> },
+            { name: "GitHub", icon: <FaGithub className="text-slate-800 text-2xl" /> },
+            { name: "VS Code", icon: <VscCode className="text-blue-500 text-2xl" /> },
+          ]
+        },
+        {
+          subcategory: "Design & Local Dev",
+          items: [
+            { name: "Figma", icon: <FaFigma className="text-purple-600 text-2xl" /> },
+            { name: "Laragon", icon: <div className="text-red-500 text-xl font-bold">L</div> },
+          ]
+        }
+      ]
+    }
+  };
 
   return (
     <section id="about" className="py-12 sm:py-16 md:py-20 bg-[#fbfbfe]">
@@ -101,50 +148,70 @@ const About = () => {
           </div>
         </div>
         
-        {/* Skills section */}
+        {/* Updated Skills section */}
         <div className="max-w-5xl mx-auto">
           <h3 className="text-xl sm:text-2xl font-semibold mb-6 sm:mb-8 text-center text-[#050315]">My Skills</h3>
           
-          {/* Desktop view - grid layout */}
-          <div className="hidden sm:grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-            {skills.map((skill, index) => (
-              <div 
-                key={index}
-                className="bg-white p-3 sm:p-4 rounded-lg border border-[#dedcff] shadow-sm hover:shadow-md transition-all duration-300 hover:bg-[#2f27ce] group flex flex-col items-center justify-center gap-2"
-              >
-                <div className="transition-transform duration-300 transform group-hover:scale-110 group-hover:text-white">
-                  {skill.icon}
+          {/* Desktop view - Organized by development area */}
+          <div className="hidden sm:block">
+            {Object.values(skillSets).map((skillSet, setIndex) => (
+              <div key={setIndex} className="mb-10">
+                <h4 className="text-lg font-semibold text-[#2f27ce] mb-4 border-l-4 border-[#2f27ce] pl-3">{skillSet.title}</h4>
+                
+                <div className="space-y-6">
+                  {skillSet.skills.map((skillGroup, groupIndex) => (
+                    <div key={groupIndex}>
+                      <h5 className="text-sm text-[#050315]/70 mb-3 font-medium">{skillGroup.subcategory}</h5>
+                      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+                        {skillGroup.items.map((skill, skillIndex) => (
+                          <div 
+                            key={skillIndex}
+                            className="bg-white p-3 sm:p-4 rounded-lg border border-[#dedcff] shadow-sm hover:shadow-md transition-all duration-300 hover:bg-[#2f27ce] group flex flex-col items-center justify-center gap-2"
+                          >
+                            <div className="transition-transform duration-300 transform group-hover:scale-110 group-hover:text-white">
+                              {skill.icon}
+                            </div>
+                            <span className="font-medium text-sm md:text-base text-[#050315]/80 group-hover:text-white transition-colors duration-300">
+                              {skill.name}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <span className="font-medium text-sm md:text-base text-[#050315]/80 group-hover:text-white transition-colors duration-300">
-                  {skill.name}
-                </span>
               </div>
             ))}
           </div>
           
-          {/* Mobile view - categorized accordion-style layout */}
-          <div className="sm:hidden space-y-4">
-            {skillCategories.map((category, catIndex) => (
-              <div key={catIndex} className="border border-[#dedcff] rounded-lg overflow-hidden">
+          {/* Mobile view - Organized by development area with accordion style */}
+          <div className="sm:hidden space-y-6">
+            {Object.values(skillSets).map((skillSet, setIndex) => (
+              <div key={setIndex} className="border border-[#dedcff] rounded-lg overflow-hidden">
                 <div className="bg-[#f5f5ff] p-3 font-semibold text-[#2f27ce]">
-                  {category}
+                  {skillSet.title}
                 </div>
-                <div className="grid grid-cols-2 gap-2 p-2">
-                  {skills
-                    .filter(skill => skill.category === category)
-                    .map((skill, skillIndex) => (
-                      <div 
-                        key={skillIndex}
-                        className="bg-white p-3 rounded-lg border border-[#dedcff] shadow-sm hover:shadow-md transition-all duration-300 hover:bg-[#2f27ce] group flex flex-col items-center justify-center gap-2"
-                      >
-                        <div className="transition-transform duration-300 transform group-hover:scale-110 group-hover:text-white">
-                          {skill.icon}
-                        </div>
-                        <span className="font-medium text-xs text-center text-[#050315]/80 group-hover:text-white transition-colors duration-300">
-                          {skill.name}
-                        </span>
+                <div className="p-2 space-y-4">
+                  {skillSet.skills.map((skillGroup, groupIndex) => (
+                    <div key={groupIndex}>
+                      <div className="text-xs font-medium text-[#050315]/60 px-2 mb-2">{skillGroup.subcategory}</div>
+                      <div className="grid grid-cols-2 gap-2">
+                        {skillGroup.items.map((skill, skillIndex) => (
+                          <div 
+                            key={skillIndex}
+                            className="bg-white p-3 rounded-lg border border-[#dedcff] shadow-sm hover:shadow-md transition-all duration-300 hover:bg-[#2f27ce] group flex flex-col items-center justify-center gap-2"
+                          >
+                            <div className="transition-transform duration-300 transform group-hover:scale-110 group-hover:text-white">
+                              {skill.icon}
+                            </div>
+                            <span className="font-medium text-xs text-center text-[#050315]/80 group-hover:text-white transition-colors duration-300">
+                              {skill.name}
+                            </span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
