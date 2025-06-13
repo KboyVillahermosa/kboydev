@@ -3,7 +3,7 @@ import { FaGithub, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn } from "re
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-[#fbfbfe]">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Section header with minimal styling */}
@@ -44,19 +44,6 @@ const Contact = () => {
                     +63 956 463 5763
                   </a>
                 </div>
-              </div>
-              
-              {/* Simple CTA Button */}
-              <div className="pt-4">
-                <a 
-                  href="mailto:franciscovillahermosa@gmail.com" 
-                  className="inline-flex items-center text-[#2f27ce] font-medium hover:text-[#433bff] transition-all border-b border-[#2f27ce] pb-0.5 hover:border-[#433bff]"
-                >
-                  Let's Talk About Your Project
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
-                </a>
               </div>
             </div>
             
