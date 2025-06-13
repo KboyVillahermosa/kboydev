@@ -312,65 +312,62 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Image Modal with Enhanced Professional Styling */}
+      {/* Image Modal with Clean, Light Design & Subtle Blur Effect */}
       {modalOpen && currentProject && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md transition-all duration-300" 
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-white/90 backdrop-blur-md transition-all duration-300" 
           onClick={closeModal}
         >
           <div 
-            className="relative max-w-7xl w-full bg-[#050315]/30 rounded-xl shadow-2xl backdrop-blur-lg border border-white/10 transition-all duration-300 transform"
+            className="relative max-w-7xl w-full bg-white/80 rounded-2xl shadow-lg border border-[#dedcff] transition-all duration-300 transform overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
-            <div className="absolute top-0 inset-x-0 p-6 flex justify-between items-center z-20 bg-gradient-to-b from-black/60 to-transparent rounded-t-xl">
-              <h3 className="text-white font-medium text-xl flex items-center gap-2">
-                <span className="w-2 h-6 bg-[#433bff] rounded-sm inline-block"></span>
+            {/* Modal Header - Light Version */}
+            <div className="absolute top-0 inset-x-0 p-4 sm:p-6 flex justify-between items-center z-20 bg-gradient-to-b from-white/90 via-white/70 to-transparent rounded-t-2xl">
+              <h3 className="text-[#050315] font-medium text-base sm:text-xl flex items-center gap-2 py-1 px-3 rounded-lg bg-white/80">
+                <span className="w-1 h-4 sm:h-6 bg-[#433bff] rounded-sm inline-block"></span>
                 {currentProject.title}
               </h3>
               <button
                 onClick={closeModal}
-                className="p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-200 hover:rotate-90"
+                className="p-2 bg-white/80 hover:bg-[#433bff]/20 rounded-full text-[#050315] transition-all duration-200 hover:rotate-90"
                 aria-label="Close modal"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
 
-            {/* Image Container */}
-            <div className="py-16 px-4 md:px-8">
+            {/* Image Container - Clean Styling */}
+            <div className="py-14 sm:py-16 px-2 sm:px-4 md:px-8">
               <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                <div className="relative w-full aspect-[16/9] md:aspect-auto md:h-[70vh] rounded-lg overflow-hidden shadow-xl">
+                <div className="relative w-full aspect-[16/9] sm:aspect-auto sm:h-[60vh] md:h-[70vh] rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
                   <Image
                     src={currentProject.images[currentImageIndex]}
                     alt={`${currentProject.title} screenshot ${currentImageIndex + 1}`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 80vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, 80vw"
                     className="object-contain"
                     priority
                     quality={90}
                   />
-                  
-                  {/* Image overlay for better contrast */}
-                  <div className="absolute inset-0 bg-gradient-radial from-transparent to-black/40 pointer-events-none"></div>
                 </div>
               </div>
             </div>
 
-            {/* Navigation Arrows with elegant styling */}
+            {/* Navigation Arrows - Lighter Style */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 prevImage();
               }}
-              className="absolute top-1/2 left-4 md:left-6 -translate-y-1/2 z-10 p-2 md:p-3 
-                      rounded-full bg-black/30 text-white hover:bg-[#433bff]/70 border border-white/10 
-                      transition-all duration-300 hover:scale-110 group"
+              className="absolute top-1/2 left-1 sm:left-4 md:left-6 -translate-y-1/2 z-10 p-1.5 sm:p-2 md:p-3 
+                      rounded-full bg-white/80 text-[#050315] hover:bg-[#433bff]/20 border border-[#dedcff]
+                      transition-all duration-300 hover:scale-110 shadow-sm group"
               aria-label="Previous image"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -380,28 +377,28 @@ const Projects = () => {
                 e.stopPropagation();
                 nextImage();
               }}
-              className="absolute top-1/2 right-4 md:right-6 -translate-y-1/2 z-10 p-2 md:p-3 
-                      rounded-full bg-black/30 text-white hover:bg-[#433bff]/70 border border-white/10 
-                      transition-all duration-300 hover:scale-110 group"
+              className="absolute top-1/2 right-1 sm:right-4 md:right-6 -translate-y-1/2 z-10 p-1.5 sm:p-2 md:p-3 
+                      rounded-full bg-white/80 text-[#050315] hover:bg-[#433bff]/20 border border-[#dedcff]
+                      transition-all duration-300 hover:scale-110 shadow-sm group"
               aria-label="Next image"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
 
-            {/* Bottom Controls Bar */}
-            <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/70 to-transparent rounded-b-xl">
-              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            {/* Bottom Controls Bar - Light Version */}
+            <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 md:p-6 bg-gradient-to-t from-white/90 via-white/70 to-transparent rounded-b-2xl">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
                 {/* Image counter with progress bar */}
-                <div className="flex items-center gap-3 w-full md:w-auto">
-                  <div className="text-white/90 font-medium">
-                    <span className="text-white font-bold">{currentImageIndex + 1}</span>
+                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto order-2 sm:order-1">
+                  <div className="text-[#050315]/90 font-medium text-xs sm:text-sm">
+                    <span className="text-[#050315] font-bold">{currentImageIndex + 1}</span>
                     <span className="mx-1">/</span>
                     <span>{currentProject.images.length}</span>
                   </div>
                   
-                  <div className="w-32 md:w-48 h-1 bg-white/20 rounded-full overflow-hidden">
+                  <div className="w-24 sm:w-32 md:w-48 h-1 bg-gray-200 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-[#433bff] transition-all duration-300" 
                       style={{ width: `${((currentImageIndex + 1) / currentProject.images.length) * 100}%` }}
@@ -411,34 +408,37 @@ const Projects = () => {
 
                 {/* Thumbnail dots */}
                 {currentProject.images.length > 1 && (
-                  <div className="flex justify-center gap-1.5 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full">
-                    {currentProject.images.map((_, index) => (
+                  <div className="flex justify-center gap-1 sm:gap-1.5 px-2 py-1 sm:px-4 sm:py-2 bg-white/80 shadow-sm rounded-full order-1 sm:order-2 border border-[#dedcff]">
+                    {currentProject.images.slice(0, Math.min(currentProject.images.length, window.innerWidth < 640 ? 7 : 12)).map((_, index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-300 ${
                           index === currentImageIndex 
                           ? 'bg-[#433bff] scale-125 shadow-[0_0_8px_rgba(67,59,255,0.6)]' 
-                          : 'bg-white/30 hover:bg-white/60'
+                          : 'bg-gray-300 hover:bg-gray-400'
                         }`}
                         aria-label={`Go to image ${index + 1}`}
                       />
                     ))}
+                    {currentProject.images.length > (window.innerWidth < 640 ? 7 : 12) && (
+                      <span className="text-xs text-gray-500">+{currentProject.images.length - (window.innerWidth < 640 ? 7 : 12)}</span>
+                    )}
                   </div>
                 )}
                 
                 {/* Tech stack tags */}
-                <div className="hidden md:flex gap-2">
+                <div className="hidden sm:flex gap-2 order-3">
                   {currentProject.technologies.slice(0, 3).map((tech, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-white/10 backdrop-blur-md text-white/80 text-xs rounded-full border border-white/10"
+                      className="px-3 py-1 bg-white/80 text-[#050315]/80 text-xs rounded-full border border-[#dedcff] shadow-sm"
                     >
                       {tech}
                     </span>
                   ))}
                   {currentProject.technologies.length > 3 && (
-                    <span className="px-3 py-1 bg-white/10 backdrop-blur-md text-white/80 text-xs rounded-full border border-white/10">
+                    <span className="px-3 py-1 bg-white/80 text-[#050315]/80 text-xs rounded-full border border-[#dedcff] shadow-sm">
                       +{currentProject.technologies.length - 3}
                     </span>
                   )}
@@ -447,17 +447,17 @@ const Projects = () => {
             </div>
 
             {/* Keyboard shortcuts hint */}
-            <div className="absolute bottom-20 right-6 text-white/50 text-xs flex items-center gap-4 bg-black/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
+            <div className="absolute bottom-20 right-6 text-[#050315]/70 text-xs hidden md:flex items-center gap-4 bg-white/80 px-3 py-1.5 rounded-full border border-[#dedcff] shadow-sm">
               <div className="flex items-center gap-1.5">
-                <span className="bg-white/10 px-2 py-0.5 rounded font-mono">←</span>
+                <span className="bg-gray-100 px-2 py-0.5 rounded font-mono">←</span>
                 <span>Previous</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="bg-white/10 px-2 py-0.5 rounded font-mono">→</span>
+                <span className="bg-gray-100 px-2 py-0.5 rounded font-mono">→</span>
                 <span>Next</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="bg-white/10 px-2 py-0.5 rounded font-mono">Esc</span>
+                <span className="bg-gray-100 px-2 py-0.5 rounded font-mono">Esc</span>
                 <span>Close</span>
               </div>
             </div>
