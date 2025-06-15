@@ -77,8 +77,9 @@ const Projects = () => {
       description: "Discover and track hiking spots around Cebu. Post your adventures, monitor your progress and routes, and access maps of all local trails.",
       technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
       images: [
-        "/images/ascentra.jpg",
-        "/images/ascentra1.jpg",
+        "/images/10.png",
+        "/images/11.png",
+        "/images/12.png",
       ],
       demoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise",
       repoUrl: "https://github.com/KboyVillahermosa/Capstone_Hikewise"
