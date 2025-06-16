@@ -3,6 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { 
+  SiFlutter, SiDart, SiSqlite, 
+  SiFirebase, SiReact, SiNodedotjs, 
+  SiTypescript, SiTailwindcss, SiHtml5, 
+  SiCss3, SiJavascript, SiPhp, SiMysql, 
+  SiLaravel, SiSupabase
+} from "react-icons/si";
+import { AiOutlineFile, AiOutlineCamera, AiOutlineFolder, AiOutlineSave } from "react-icons/ai";
 
 // Define TypeScript interfaces for better type safety
 interface ProjectImage {
@@ -10,11 +18,16 @@ interface ProjectImage {
   alt?: string;
 }
 
+interface Technology {
+  name: string;
+  icon: JSX.Element;
+}
+
 interface Project {
   id: number;
   title: string;
   description: string;
-  technologies: string[];
+  technologies: Technology[];
   images: string[];
   demoUrl: string;
   repoUrl: string;
@@ -31,7 +44,12 @@ const Projects = () => {
       id: 1,
       title: "USPF Research Archive",
       description: "USPF Research Archive is a digital platform where students and faculty can upload theses, dissertations, and research publications. It also automatically generates related studies, helping users find relevant academic work for their research.",
-      technologies: ["Laravel", "Backpack", "Tailwind CSS", "MySQL"],
+      technologies: [
+        { name: "Laravel", icon: <SiLaravel className="text-red-600" /> },
+        { name: "Backpack", icon: <AiOutlineFolder className="text-yellow-600" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-blue-400" /> },
+        { name: "MySQL", icon: <SiMysql className="text-blue-800" /> }
+      ],
       images: [
         "/images/uspf1.png",
         "/images/uspf2.png",
@@ -51,7 +69,14 @@ const Projects = () => {
       id: 2,
       title: "Techtool",
       description: "Your go-to resource for improving your computer science and IT ",
-      technologies: ["Html", "Css", "JS", "Php", "MySql", "Tailwind CSS"],
+      technologies: [
+        { name: "Html", icon: <SiHtml5 className="text-orange-500" /> },
+        { name: "Css", icon: <SiCss3 className="text-blue-500" /> },
+        { name: "JS", icon: <SiJavascript className="text-yellow-400" /> },
+        { name: "Php", icon: <SiPhp className="text-purple-500" /> },
+        { name: "MySql", icon: <SiMysql className="text-blue-800" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-blue-400" /> }
+      ],
       images: [
         "/images/tech.png",
         "/images/tech_1.png",
@@ -63,7 +88,12 @@ const Projects = () => {
       id: 3,
       title: "Search Job",
       description: "Our platform aggregates job listings from leading sources, including LinkedIn, Indeed, Glassdoor, and more, allowing you to search, filter, and explore opportunities all in one place.",
-      technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
+      technologies: [
+        { name: "Reactjs", icon: <SiReact className="text-blue-400" /> },
+        { name: "Node.js", icon: <SiNodedotjs className="text-green-600" /> },
+        { name: "Firebase", icon: <SiFirebase className="text-yellow-500" /> },
+        { name: "Typescript", icon: <SiTypescript className="text-blue-600" /> }
+      ],
       images: [
         "/images/search.png",
         "/images/search_1.png",
@@ -75,7 +105,12 @@ const Projects = () => {
       id: 4,
       title: "Ascentra",
       description: "Discover and track hiking spots around Cebu. Post your adventures, monitor your progress and routes, and access maps of all local trails.",
-      technologies: ["Reactjs", "Node.js", "Firebase", "Typescript"],
+      technologies: [
+        { name: "React Native", icon: <SiReact className="text-blue-400" /> },
+        { name: "Node.js", icon: <SiNodedotjs className="text-green-600" /> },
+        { name: "Supabase", icon: <SiSupabase className="text-green-500" /> },
+       
+      ],
       images: [
         "/images/10.png",
         "/images/11.png",
@@ -88,7 +123,16 @@ const Projects = () => {
       id: 5,
       title: "SeviceYou",
       description: "is a mobile marketplace that connects skilled professionals with clients seeking services. Built with Flutter, the app enables users to discover local service providers, offer their expertise as professionals, and manage the entire service process in one place.",
-      technologies: ["Flutter", "Dart", "SqLite", "Sqflite", "path_provider", "image_picker", "file_picker", "shared_preferences"],
+      technologies: [
+        { name: "Flutter", icon: <SiFlutter className="text-cyan-500" /> },
+        { name: "Dart", icon: <SiDart className="text-blue-500" /> },
+        { name: "SqLite", icon: <SiSqlite className="text-blue-700" /> },
+        { name: "Sqflite", icon: <SiSqlite className="text-blue-600" /> },
+        { name: "path_provider", icon: <AiOutlineFolder className="text-yellow-600" /> },
+        { name: "image_picker", icon: <AiOutlineCamera className="text-green-500" /> },
+        { name: "file_picker", icon: <AiOutlineFile className="text-purple-500" /> },
+        { name: "shared_preferences", icon: <AiOutlineSave className="text-orange-500" /> }
+      ],
       images: [
         "/images/2.jpg",
         "/images/3.jpg",
@@ -199,9 +243,10 @@ const Projects = () => {
                             {project.technologies.map((tech, techIndex) => (
                               <span
                                 key={techIndex}
-                                className="border border-[#dedcff] bg-white text-[#050315]/80 text-xs px-3 py-1 rounded-full shadow-sm"
+                                className="border border-[#dedcff] bg-white text-[#050315]/80 text-xs px-3 py-1 rounded-full shadow-sm flex items-center gap-1.5"
                               >
-                                {tech}
+                                {tech.icon}
+                                {tech.name}
                               </span>
                             ))}
                           </div>
@@ -433,9 +478,10 @@ const Projects = () => {
                   {currentProject.technologies.slice(0, 3).map((tech, index) => (
                     <span 
                       key={index} 
-                      className="px-3 py-1 bg-white/80 text-[#050315]/80 text-xs rounded-full border border-[#dedcff] shadow-sm"
+                      className="px-3 py-1 bg-white/80 text-[#050315]/80 text-xs rounded-full border border-[#dedcff] shadow-sm flex items-center gap-1.5"
                     >
-                      {tech}
+                      {tech.icon}
+                      {tech.name}
                     </span>
                   ))}
                   {currentProject.technologies.length > 3 && (
