@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   SiFlutter, SiDart, SiSqlite, 
   SiFirebase, SiReact, SiNodedotjs, 
@@ -20,7 +20,7 @@ interface ProjectImage {
 
 interface Technology {
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 interface Project {
